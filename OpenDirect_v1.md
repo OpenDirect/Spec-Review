@@ -2731,13 +2731,13 @@ The following diagram illustrates the calls required to add an order. The diagra
 
 The following diagram shows the state changes of a Line resource. For details about each state, see BookingStatus.
 
-{{ insert image }}
+![Booking State Diagram](/img/OpenDirect_v1_booking_state_model.jpg)
 
 ##Resource Model 
 
 The following diagram shows the relationships between the OpenDirect resources. For details about the resource objects, see Resource.
 
-{{ insert image }}
+![Resource State Diagram](/img/OpenDirect_v1_resource_state_model.gif)
 
 ##vNext
 
