@@ -2725,7 +2725,7 @@ See Reporting.
 
 The following diagram illustrates the calls required to add an order. The diagram does not include the one time calls to get and cache reference data. 
 
-{{ insert image }}
+![Workflow Diagram](/img/OpenDirect_v1_workflow_diagram.gif)
 
 ##Booking State Diagram
 
