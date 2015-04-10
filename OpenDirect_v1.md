@@ -1,6 +1,3 @@
-* auto-gen TOC:
-{:toc}
-
 #OPENDIRECT
 ##API SPECIFICATION VERSION 1.0
 
