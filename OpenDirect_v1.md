@@ -1,3 +1,6 @@
+* auto-gen TOC:
+{:toc}
+
 #OPENDIRECT
 ##API SPECIFICATION VERSION 1.0
 
@@ -182,6 +185,7 @@ The following objects are common to one or more resources.
 ###Address
 
 Defines a postal address.
+
 | Property     | Type   | Constraint                                                                                      | Add      | Update   | Publisher Requirement | Description                     |
 |--------------|--------|-------------------------------------------------------------------------------------------------|----------|----------|-----------------------|---------------------------------|
 | City         | String | Maximum of 35 alpha characters. Cannot be an empty string.                                      | Required | Optional | Must support          | The city.                       |
@@ -996,6 +1000,7 @@ The list will contain a single organization for advertisers; however, for agenci
 #####Example Request
 
 `GET https://<host>/<path>/<version>/organizations HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -1004,6 +1009,7 @@ AccessToken: `<OAuth token>`
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 1879
+
 ```json
 {
   "organizations":[
@@ -1062,6 +1068,7 @@ An agency may not update an advertiser’s organization.
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/organizations/12345678 HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -1111,7 +1118,9 @@ Content-Length: 1879
 ```
 
 #####Example PATCH Request
+
 `PATCH https://<host>/<path>/<version>/organizations/12345678 HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1134,9 +1143,11 @@ AccessToken: `<OAuth token>`
 ```
 
 #####Example PATCH Response
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 1879'
+
 ```json
 {
   "address":{
@@ -1202,7 +1213,8 @@ For an advertiser, the list of accounts will include only accounts that they own
 
 #####Example POST Request
 
-POST `https://<host>/<path>/<version>/accounts HTTP/1.1`
+`POST https://<host>/<path>/<version>/accounts HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1235,6 +1247,7 @@ Content-Length: 379
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -1278,10 +1291,12 @@ The user must have permissions to perform the requested action. For example, adv
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345 HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
 #####Example GET Response
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 187
@@ -1321,6 +1336,7 @@ For advertisers, the list will include only assignments that they own. For agenc
 #####Example POST Request
 
 `POST https://<host>/<path>/<version>/accounts/23873345/assignments HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1337,6 +1353,7 @@ AccessToken: `<OAuth token>`
 
 HTTP/1.1 200 OK
 Location: `https://<host>/<path>/<version>/accounts/23873345/assignments/34534`
+
 Content-Type: application/json
 Content-Length: 187
 
@@ -1354,6 +1371,7 @@ Content-Length: 187
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345/assignments HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -1398,10 +1416,10 @@ The user must have permissions to perform the requested action. For example, adv
 
 An assignment may be deleted only if it has never delivered impressions.
 
-
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345/assignments/453365 HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -1425,6 +1443,7 @@ Content-Length: 108
 #####Example PATCH Request
 
 `PATCH https://<host>/<path>/<version>/accounts/23873345/assignments/453365 HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1464,6 +1483,7 @@ The user must have permissions to access the assignment. For example, advertiser
 #####Example Request
 
 `PATCH https://<host>/<path>/<version>/accounts/23873345/assignments/453365 HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1551,6 +1571,7 @@ For advertisers, the list will include only creatives that they own. For agencie
 #####Example POST Request
 
 `POST https://<host>/<path>/<version>/accounts/23873345/creatives HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1573,7 +1594,8 @@ AccessToken: `<OAuth token>`
 #####Example POST Response
 
 HTTP/1.1 200 OK
-Location: 	`https://<host>/<path>/<version>/accounts/23873345/creatives/53444`
+Location: `https://<host>/<path>/<version>/accounts/23873345/creatives/53444`
+
 Content-Type: application/json
 Content-Length: 108
 
@@ -1599,6 +1621,7 @@ Content-Length: 108
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345/creatives HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -1687,6 +1710,7 @@ AccessToken: `<OAuth token>`
 ```
 
 #####Example PATCH Response
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 308
@@ -1736,6 +1760,7 @@ For advertisers, the list will include only orders that they own. For agencies, 
 #####Example POST Request
 
 `POST https://<host>/<path>/<version>/accounts/23873345/orders HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1777,6 +1802,7 @@ Content-Length: 108
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345/orders HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -1820,10 +1846,12 @@ Only orders in the Draft booking state may be deleted.
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345/orders/1235872 HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
-Example GET Response
+#####Example GET Response
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 158
@@ -1846,6 +1874,7 @@ Content-Length: 158
 #####Example PATCH Request
 
 `PATCH https://<host>/<path>/<version>/accounts/23873345/orders/1235872 HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1900,7 +1929,9 @@ An advertiser or agency may add lines to orders that they own. In addition; an a
 For advertisers, the list will include only lines that they own. For agencies, the list will include the lines that they own and the lines that belong to accounts that they manage on behalf of advertisers. 
 
 #####Example POST Request
+
 `POST https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -1932,6 +1963,7 @@ AccessToken: `<OAuth token>`
 
 HTTP/1.1 200 OK
 Location: `https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines/345233`
+
 Content-Type: application/json
 Content-Length: 878
 
@@ -1966,6 +1998,7 @@ Content-Length: 878
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -2025,6 +2058,7 @@ A line may be deleted only if it’s in the Draft state. In addition, all assign
 #####Example GET Request
 
 `GET https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines/345233 HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -2063,7 +2097,9 @@ Content-Length: 158
 ```
 
 #####Example PATCH Request
+
 `PATCH https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines/345233 HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
@@ -2195,10 +2231,12 @@ Supporting reserve is optional.
 #####Example Request
 
 `PATCH https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines/345233?reserve HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
 #####Example Response
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 458
@@ -2244,10 +2282,12 @@ To cancel a line, the line must be in the Reserved, Booked, or InFlight state. I
 #####Example Request
 
 `PATCH https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines/345233?cancel HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
 #####Example Response
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 658
@@ -2296,10 +2336,12 @@ To reset a line, the line must be in the Reserved, Declined, or Expired booking 
 #####Example Request
 
 `PATCH https://<host>/<path>/<version>/accounts/23873345/orders/1235872/lines/345233?reset HTTP/1.1`
+
 Content-Type: application/json
 AccessToken: `<OAuth token>`
 
 #####Example Response
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 458
@@ -2342,6 +2384,7 @@ Gets the list of Products from the product catalog.
 #####Example Request
 
 `GET https://<host>/<path>/<version>/products HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -2350,7 +2393,6 @@ AccessToken: `<OAuth token>`
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 5899
-
 
 ```json
 {
@@ -2401,6 +2443,7 @@ Gets the specified Product from the product catalog.
 #####Example Request
 
 `GET https://<host>/<path>/<version>/products/456366 HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -2457,6 +2500,7 @@ Product selection uses a logical AND between fields and a logical OR between fie
 #####Example Request
 
 `GET https://<host>/<path>/<version>/products/search HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -2529,6 +2573,7 @@ Only organizations that have an Approved or Limited status may search for avails
 #####Example Request
 
 `GET https://<host>/<path>/<version>/products/avails HTTP/1.1`
+
 Accept: application/json
 AccessToken: `<OAuth token>`
 
@@ -2690,7 +2735,9 @@ The following diagram shows the state changes of a Line resource. For details ab
 
 ##Resource Model 
 
-The following diagram shows the relationships between the OpenDirect resources. For details about the resource objects, see Resource .
+The following diagram shows the relationships between the OpenDirect resources. For details about the resource objects, see Resource.
+
+{{ insert image }}
 
 ##vNext
 
